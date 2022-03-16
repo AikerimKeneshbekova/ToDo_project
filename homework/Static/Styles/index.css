@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin:  0;
+    padding: 20px;
+    color: rgb(12, 12, 12)
+    
+    
+}
+
+/* section{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+body{
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 24%;
+    padding: 10px 15px;
+    background-color: yellowgreen;
+    margin-bottom: 20px;
+
+}
+    
+
+.persone{
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 24%;
+    padding: 10px 15px;
+    background-color: yellowgreen;
+    margin-bottom: 20px;
+}
