@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: blue
+    color: hsl(240, 85%, 38%)
 }
 
 section{
@@ -51,7 +51,7 @@ section{
     border-radius: 5px;
     width: 24%;
     padding: 10px 15px;
-    background-color: yellowgreen;
+    background-color: rgb(109, 173, 49);
     margin-bottom: 20px;
 }
 

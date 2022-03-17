@@ -2,26 +2,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link  rel="stylesheet" href="{% static 'styles/index.css'%}">
-    
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lesson 28</title>
+        <!-- <link rel="stylesheet" href="./Styles/index.css"> -->
+        <link rel="stylesheet" href="{% static 'styles/index.css'%}">
+        <!-- <link rel="stylesheet" href="./Styles/checkbox.css"> -->
+        <link rel="stylesheet" href="{% static 'styles/checkbox.css'%}">
+        
 </head>
 <body>
-    
-    <h5> Привет всем</h5>
-    {% for ToMeet in Tomeet_list %}
-        
-        <h4>{{ ToMeet.persone }} </h4>
-       
-    {% endfor %}
-   
-    
-   
+    <section>
+        <div class="create_container">
+            <input 
+            class="create_input"
+            type="text"
+            placeholder="Напишите новую задачу">
+            <button class="create_button">Добавить</button>
+        </div>
+        <div class="todo_container">
+            {% for Tomeet in Tomeet_list %}
+            <div class="todo_item">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>{{ Tomeet.persone}} -  {{ Tomeet.comment}}</h4>
+                    <h6>Tel: {{ Tomeet.phone_namber}}</h6>
+                </div>
+                <div  class="todo_item_footer">
+                    <p>{{ Tomeet.date_of_meeting}}</p>
+                    <div class="action_buttons">
+                        <img src="./icons/scheme_star_favorite_3421.png">
+                        <img src="./icons/3844460-can-trash_110351.png">
+                    </div>
 
-    
-   
+                </div>
+             </div>
+            {% endfor %}
+        </div>
+    </section>
 </body>
 </html>
