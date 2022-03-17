@@ -1,0 +1,28 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lesson 28</title>
+        <!-- <link rel="stylesheet" href="./Styles/index.css"> -->
+        <link rel="stylesheet" href="{% static 'styles/index.css'%}">
+        <!-- <link rel="stylesheet" href="./Styles/checkbox.css"> -->
+        <link rel="stylesheet" href="{% static 'styles/checkbox.css'%}">
+        <!-- <link rel="stylesheet" href="./styles.css"> -->
+        <link rel="stylesheet" href="{% static 'styles/styles.css'%}">
+        
+</head>
+<body>
+    {% for Goal_for_month in Goal_list %}
+        <div class="anime">
+           <h5> <li> {{ Goal_for_month.goal }}</li></h5> 
+           <p>{{ Goal_for_month.month }} </p>
+           <h6>{{ Goal_for_month.reason_for_goal}}</h6>
+           
+
+        </div>
+    {% endfor %}
+</body>
+</html>

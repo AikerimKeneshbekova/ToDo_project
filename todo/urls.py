@@ -17,7 +17,7 @@ from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import path
 from main.views import  test, homepage
-from homework.views import home, helloworld, meeting
+from homework.views import home, helloworld, meeting, newHW
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,7 +28,8 @@ urlpatterns = [
     path("test/", test, name="test"),
     path("home", home, name="home"),
     path("",helloworld, name ="world"),
-    path("meeting", meeting, name = "meeting")
+    path("meeting", meeting, name = "meeting"),
+    path("newHW", newHW, name= "new"),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT) \
     
