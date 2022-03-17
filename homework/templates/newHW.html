@@ -17,11 +17,25 @@
 <body>
     {% for Goal_for_month in Goal_list %}
         <div class="anime">
-           <h5> <li> {{ Goal_for_month.goal }}</li></h5> 
-           <p>{{ Goal_for_month.month }} </p>
-           <h6>{{ Goal_for_month.reason_for_goal}}</h6>
            
+            <div>
+                <div>
+                    <label class="checkbox_container">
+                        <!-- <input type="checkbox"> -->
+                        <span class="checkmark"></span>
+                    </label>
+                    <h5> <li> {{ Goal_for_month.goal }}</li></h5> 
+                    <h6>{{ Goal_for_month.reason_for_goal}}</h6>
+                </div>
+                <div  class="todo_item_footer">
+                    <h6>{{ Goal_for_month.month }} </h6>
+                    <div class="action_buttons">
+                        <img src="{% static './icons/scheme_star_favorite_3421.png' %}">
+                        <img src="{% static './icons/3844460-can-trash_110351.png' %}">
+                     </div>
 
+                </div>
+            </div>
         </div>
     {% endfor %}
 </body>
