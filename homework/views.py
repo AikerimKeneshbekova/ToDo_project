@@ -1,4 +1,7 @@
-from django.shortcuts import render, HttpResponse
+
+from cgi import test
+from urllib import request
+from django.shortcuts import redirect, render, HttpResponse
 from .models import ToMeet, Goal_for_month
 
 def home(request):
@@ -14,3 +17,17 @@ def meeting(request):
 def newHW(request):
     Goal_list = Goal_for_month.objects.all()
     return render(request, "newHW.html",{"Goal_list": Goal_list })
+
+def add_tomeet(request):
+    form = request.POST
+    text = form['Tomeet_text']
+    Tomeet = ToMeet(persone = text)
+    
+    return HttpResponse("Привет")
+
+    # Tomeet.save()
+    # return redirect(test)
+    
+    
+    # # 
+    # # return redirect(text)

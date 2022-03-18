@@ -15,11 +15,17 @@
 <body>
     <section>
         <div class="create_container">
-            <input 
-            class="create_input"
-            type="text"
-            placeholder="Напишите новую задачу">
-            <button class="create_button">Добавить</button>
+            <form action="{% url 'add-tomeet' %}"  method="POST">
+                {% csrf_token %}
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Напишите новую задачу"
+                    name = "Tomeet_text"
+                >
+                
+                <button class="create_button">Добавить</button>
+            </form>
         </div>
         <div class="todo_container">
             {% for Tomeet in Tomeet_list %}
@@ -33,7 +39,7 @@
                     <h6>Tel: {{ Tomeet.phone_namber}}</h6>
                 </div>
                 <div  class="todo_item_footer">
-                    <p>{{ Tomeet.date_of_meeting}}</p>
+                    <p>{{ Tomeet.date_of_meeting }}</p>
                     <div class="action_buttons">
                         <img src="{% static './icons/scheme_star_favorite_3421.png' %}">
                         <img src="{% static './icons/3844460-can-trash_110351.png' %}">
