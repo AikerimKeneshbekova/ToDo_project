@@ -16,7 +16,7 @@ Including another URLconf
 from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import path
-from main.views import  test, homepage, habits, add_habits
+from main.views import  test, homepage, habits, add_habits, add_todo
 from homework.views import home, helloworld, meeting, newHW, add_tomeet, add_new
 from django.conf import settings
 from django.conf.urls.static import static
@@ -33,7 +33,8 @@ urlpatterns = [
     path("add-tomeet/", add_tomeet, name ="add-tomeet"),
     path("habits", habits, name ="habits"),
     path("add_habits", add_habits, name= "add_habits" ),
-    path("add_new", add_new, name="add_new")
+    path("add_new", add_new, name="add_new"),
+    path("add-todo/", add_todo, name = "add-todo")
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT) \
     

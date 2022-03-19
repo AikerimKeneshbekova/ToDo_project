@@ -22,3 +22,10 @@ def add_habits(request):
     habits1.save()
     return redirect(habits) 
 
+def add_todo(request):
+    form = request.POST
+    text = form["todo_text"]
+    todo = ToDo(text =text)
+    todo.save()
+    return redirect(test)
+
