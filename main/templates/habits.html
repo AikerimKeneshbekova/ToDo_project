@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,37 +11,42 @@
         <!-- <link rel="stylesheet" href="./Styles/checkbox.css"> -->
         <link rel="stylesheet" href="{% static 'styles/checkbox.css'%}">
         
-    
-    </head>
+</head>
 <body>
     <section>
         <div class="create_container">
-            <input 
-            class="create_input"
-            type="text"
-            placeholder="Напишите новую задачу">
-            <button class="create_button">Добавить</button>
+            <form action="{% url 'habits' %}"  method="POST">
+                {% csrf_token %}
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Напишите новую задачу"
+                    name = "Tomeet_text"
+                >
+                
+                <button class="create_button">Добавить</button>
+            </form>
         </div>
-
         <div class="todo_container">
-            {% for Habits in habits_list %}
-                <div class="todo_item">
-                    <div class="todo_item_header">
-                        <label class="checkbox_container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <h4>{{ habits.name}}</h4>
-                    </div>
-                    <div  class="todo_item_footer">
-                        <p>28.02.2022 <span>16:22</span></p>
-                        <div class="action_buttons">
-                            <img src="./icons/scheme_star_favorite_3421.png">
-                             <img src="./icons/3844460-can-trash_110351.png">
-                        </div>
-
-                    </div>
+            {% for habits in habits_list %}
+            <div class="todo_item">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>{{ habits.name }}</h4>
+                    <em> -- {{ habits.comment }} --</em>
+                    
                 </div>
+                <div  class="todo_item_footer">
+                    <div class="action_buttons">
+                        <!-- <img src="{% static './icons/scheme_star_favorite_3421.png' %}"> -->
+                        <!-- <img src="{% static './icons/3844460-can-trash_110351.png' %}"> -->
+                    </div>
+
+                </div>
+             </div>
             {% endfor %}
         </div>
     </section>

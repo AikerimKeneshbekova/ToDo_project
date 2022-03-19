@@ -40,7 +40,7 @@ section{
 .todo_container{
     padding: 30px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
 
@@ -50,7 +50,7 @@ section{
     border: 1px solid rgb(15, 14, 14);
     border-radius: 5px;
     width: 24%;
-    padding: 15px 15px;
+    padding: 10px 10px;
     background-color: gold;
     margin-bottom: 20px;
 }
@@ -66,7 +66,7 @@ section{
 }
 
 .todo_item.done img{
-    opacity: 0.5;
+    opacity: 0,5px;
 }
 
 .todo_item.marked{

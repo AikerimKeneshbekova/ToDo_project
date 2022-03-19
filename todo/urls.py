@@ -30,8 +30,8 @@ urlpatterns = [
     path("",helloworld, name ="world"),
     path("meeting", meeting, name = "meeting"),
     path("newHW", newHW, name= "new"),
-    path("habits", habits, name ="habits"),
     path("add-tomeet/", add_tomeet, name ="add-tomeet"),
+    path("habits", habits, name ="habits"),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT) \
     
