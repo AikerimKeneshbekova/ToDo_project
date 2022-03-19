@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lesson 28</title>
+        <title> ToDo </title>
         <!-- <link rel="stylesheet" href="./Styles/index.css"> -->
         <link rel="stylesheet" href="{% static 'styles/index.css'%}">
         <!-- <link rel="stylesheet" href="./Styles/checkbox.css"> -->
@@ -15,28 +15,45 @@
         
 </head>
 <body>
-    {% for Goal_for_month in Goal_list %}
-        <div class="anime">
-           
-            <div>
+    <section>
+        <div class="create_container">
+            <form action="{% url 'add_new' %}"  method="POST">
+                {% csrf_token %}
+                <input 
+                    class="create_input"
+                    type="text"
+                    placeholder="Напишите новую задачу"
+                    name = "new_text"
+                >
+                
+                <button class="create_button">Добавить</button>
+            </form>
+        </div>
+        {% for Goal_for_month in Goal_list %}
+            <div class="anime">
+               
                 <div>
-                    <label class="checkbox_container">
-                        <!-- <input type="checkbox"> -->
-                        <span class="checkmark"></span>
-                    </label>
-                    <h5> <li> {{ Goal_for_month.goal }}</li></h5> 
-                    <h6>{{ Goal_for_month.reason_for_goal}}</h6>
-                </div>
-                <div  class="todo_item_footer">
-                    <h6>{{ Goal_for_month.month }} </h6>
-                    <div class="action_buttons">
-                        <img src="{% static './icons/scheme_star_favorite_3421.png' %}">
-                        <img src="{% static './icons/3844460-can-trash_110351.png' %}">
-                     </div>
-
+                    <div>
+                        <label class="checkbox_container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h5> <li> {{ Goal_for_month.goal }}</li></h5> 
+                        <h6>{{ Goal_for_month.reason_for_goal }}</h6>
+                    </div>
+                    <div  class="todo_item_footer">
+                        <h6>{{ Goal_for_month.month }} </h6>
+                        <div class="action_buttons">
+                            <img src="{% static './icons/scheme_star_favorite_3421.png' %}">
+                            <img src="{% static './icons/3844460-can-trash_110351.png' %}">
+                         </div>
+    
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+
+    </section>
+    
 </body>
 </html>

@@ -21,3 +21,10 @@ def add_tomeet(request):
     Tomeet = ToMeet(persone = text)
     Tomeet.save()
     return redirect(meeting)
+
+def add_new(request):
+    form = request.POST
+    text = form['new_text']
+    new = Goal_for_month(goal = text)
+    new.save()
+    return redirect(newHW)
