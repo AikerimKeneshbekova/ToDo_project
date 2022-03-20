@@ -30,7 +30,7 @@
         <div class="todo_container">
             {% for habits in habits_list %}
             <div class="todo_item
-            {% if Habits.done_for_today %}
+            {% if Habits.important %}
                 marked
             {% endif  %}
             ">
@@ -45,7 +45,7 @@
                 </div>
                 <div  class="todo_item_footer">
                     <div class="action_buttons">
-                        {% if habits.done_for_today %}
+                        {% if habits.important %}
                             <a href="{% url 'unmark-habits' habits.id %}"><img src="{% static './icons/favoritesilver_star_favorite_6338.png' %}"></a>
                         {% else %}
                             <a href="{% url 'mark-habits' habits.id %}"><img src="{% static './icons/scheme_star_favorite_3421.png' %}"></a>

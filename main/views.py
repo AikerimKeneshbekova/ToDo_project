@@ -47,21 +47,19 @@ def mark_todo(request, id):
 
 def unmark_todo(request, id):
     todo = ToDo.objects.get(id=id)
-    todo.is_closed = True
     todo.is_favorite = False
     todo.save()
     return redirect(test)
 
 def mark_habits(request, id):
     habits1 = Habits.objects.get(id=id)
-    habits1.done_for_today = True
+    habits1.important = True
     habits1.save()
     return redirect(habits)
 
 def unmark_habits(request, id):
     habits1 = Habits.objects.get(id=id)
-    habits1.important = True
-    habits1.done_for_today = False
+    habits1.important = False
     habits1.save()
     return redirect(habits)
 
