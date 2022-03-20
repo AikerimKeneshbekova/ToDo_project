@@ -63,3 +63,9 @@ def unmark_habits(request, id):
     habits1.save()
     return redirect(habits)
 
+def close_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_closed = not todo.is_closed
+    todo.save()
+    return redirect(test)
+
