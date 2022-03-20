@@ -70,8 +70,8 @@ section{
 }
 
 .todo_item.marked{
-    background-color: rgb(218, 218, 72);
-    border: 2px solid rgb(218, 218, 72);
+    background-color: rgb(85, 240, 71);
+    border: 2px solid rgb(85, 240, 71);
 }
 
 .todo_item.header{

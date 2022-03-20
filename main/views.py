@@ -39,3 +39,27 @@ def delete_habits(request, id):
     habits1.delete()
     return redirect(habits)
 
+def mark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = True
+    todo.save()
+    return redirect(test)
+
+def unmark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_closed = True
+    todo.save()
+    return redirect(test)
+
+def mark_habits(request, id):
+    habits1 = Habits.objects.get(id=id)
+    habits1.done_for_today = True
+    habits1.save()
+    return redirect(habits)
+
+def unmark_habits(request, id):
+    habits1 = Habits.objects.get(id=id)
+    habits1.important = True
+    habits1.save()
+    return redirect(habits)
+

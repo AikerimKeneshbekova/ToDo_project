@@ -38,3 +38,16 @@ def delete_goal(request, id):
     goal = Goal_for_month.objects.get(id=id)
     goal.delete()
     return redirect(newHW)
+
+def mark_tomeet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_favorite = True
+    tomeet.save()
+    return redirect(meeting)
+
+
+def unmark_tomeet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_closed = True
+    tomeet.save()
+    return redirect(meeting)
