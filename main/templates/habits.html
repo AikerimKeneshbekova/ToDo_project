@@ -30,7 +30,7 @@
         <div class="todo_container">
             {% for habits in habits_list %}
             <div class="todo_item
-            {% if Habits.important %}
+            {% if Habits.done_for_today %}
                 marked
             {% endif  %}
             ">
