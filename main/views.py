@@ -69,3 +69,9 @@ def close_todo(request, id):
     todo.save()
     return redirect(test)
 
+def close_habits(request, id):
+    habits1 = Habits.objects.get(id=id)
+    habits1.done_for_today = not habits1.done_for_today
+    habits1.save()
+    return redirect(habits)
+

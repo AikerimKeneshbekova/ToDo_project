@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lesson 28</title>
         <!-- <link rel="stylesheet" href="./Styles/index.css"> -->
-        <link rel="stylesheet" href="{% static 'styles/indexes.css'%}">
+        <link rel="stylesheet" href="{% static 'styles/index.css'%}">
         <!-- <link rel="stylesheet" href="./Styles/checkbox.css"> -->
         <link rel="stylesheet" href="{% static 'styles/checkbox.css'%}">
         
@@ -30,16 +30,22 @@
         <div class="todo_container">
             {% for habits in habits_list %}
             <div class="todo_item
-            {% if Habits.important %}
+            {% if habits.important %}
                 marked
+            {% elif habits.done_for_today %}
+                done
             {% endif  %}
             ">
                 <div class="todo_item_header">
                     <label class="checkbox_container">
-                        <input type="checkbox">
+                        <input type="checkbox"
+                        {% if habits.done_for_today %}
+                            checked
+                        {% endif %}
+                        />
                         <span class="checkmark"></span>
                     </label>
-                    <h4>{{ habits.name }}</h4>
+                    <h4><a href="{% url 'close-habits' habits.id %}">{{ habits.name }}</a></h4>
                     <em> -- {{ habits.comment }} --</em>
                     
                 </div>
