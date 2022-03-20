@@ -51,3 +51,17 @@ def unmark_tomeet(request, id):
     tomeet.is_closed = True
     tomeet.save()
     return redirect(meeting)
+
+def mark_goal(request, id):
+    goal = Goal_for_month.objects.get(id=id)
+    goal.difficulty = True
+    goal.save()
+    return redirect(newHW)
+
+def unmark_goal(request, id):
+    goal = Goal_for_month.objects.get(id=id)
+    goal.difficulty = False
+    goal.save()
+    return redirect(newHW)
+
+

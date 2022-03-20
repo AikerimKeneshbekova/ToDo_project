@@ -31,27 +31,33 @@
         </div>
         <div class="todo_container">
             {% for Goal_for_month in Goal_list %}
-            <div class="todo_item">
+            <div class="todo_item
+            {% if Goal_for_month.difficulty %}
+                marked
+            {% endif %}
+            ">
                 <div class="todo_item_header">
                     <label class="checkbox_container">
                         <input type="checkbox">
                         <span class="checkmark"></span>
                     </label>
-                    <h5> <li> {{ Goal_for_month.goal }}</li></h5> 
-                    <h6>{{ Goal_for_month.reason_for_goal }}</h6>
-
-                </div>  
-                <div  class="todo_item_footer">
-                    <h6>{{ Goal_for_month.month }} </h6>
-                    <div class="action_buttons">
-                        <img src="{% static './icons/scheme_star_favorite_3421.png' %}">
-                        <a href="{% url 'delete-goal' Goal_for_month.id %}"></a><img src="{% static './icons/3844460-can-trash_110351.png' %}">
-                    </div>
-    
+                    <h4>{{ Goal_for_month.goal }} -  {{ Goal_for_month.reason_for_goal}}</h4>
                 </div>
-            </div>
-        {% endfor %}
+                <div  class="todo_item_footer">
+                    <p>{{ Goal_for_month.month }}</p>
+                    <div class="action_buttons">
+                        {% if Goal_for_month.difficulty %}
+                            <a href="{% url 'unmark-goal' Goal_for_month.id %}"><img src="{% static './icons/favoritesilver_star_favorite_6338.png' %}"></a>
+                        {% else %}  
+                            <a href="{% url 'mark-goal' Goal_for_month.id %}"><img src="{% static './icons/scheme_star_favorite_3421.png' %}"></a>
+                        {% endif %}
+                        
+                        <a href="{% url 'delete-goal' Goal_for_month.id %}"><img src="{% static './icons/3844460-can-trash_110351.png' %}"></a>
+                    </div>
 
+                </div>
+             </div>
+            {% endfor %}
         </div>
     </section>
     
