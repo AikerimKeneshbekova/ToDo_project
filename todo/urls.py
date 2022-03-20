@@ -17,7 +17,7 @@ from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import path
 from main.views import  test, homepage, habits, add_habits, add_todo, delete_todo, delete_habits, mark_todo, unmark_todo,mark_habits, unmark_habits, close_todo,close_habits
-from homework.views import home, helloworld, meeting, newHW, add_tomeet, add_new, delete_tomeet,delete_goal, mark_tomeet, unmark_tomeet, mark_goal, unmark_goal
+from homework.views import home, helloworld, meeting, newHW, add_tomeet, add_new, delete_tomeet,delete_goal, mark_tomeet, unmark_tomeet, mark_goal, unmark_goal, close_tomeet
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -51,7 +51,8 @@ urlpatterns = [
     path("mark-goal/<id>/", mark_goal, name = "mark-goal"),
     path("unmark-goal/<id>/", unmark_goal, name = "unmark-goal"),
     path("close-todo/<id>/", close_todo, name = "close-todo"),
-    path("close-habits/<id>/", close_habits, name = "close-habits")
+    path("close-habits/<id>/", close_habits, name = "close-habits"),
+    path("close-tomeet/<id>/", close_tomeet, name = "close-tomeet")
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT) \
     

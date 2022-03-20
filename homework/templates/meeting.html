@@ -30,16 +30,22 @@
         <div class="todo_container">
             {% for Tomeet in Tomeet_list %}
             <div class="todo_item
-            {% if Tomeet.is_favorite%}
+            {% if Tomeet.is_favorite %}
                 marked
+            {% elif Tomeet.is_closed %}
+                done
             {% endif %}
             ">
                 <div class="todo_item_header">
                     <label class="checkbox_container">
-                        <input type="checkbox">
+                        <input type="checkbox"
+                        {% if Tomeet.is_closed %}
+                            checked
+                        {% endif %}
+                        />
                         <span class="checkmark"></span>
                     </label>
-                    <h4>{{ Tomeet.persone}} -  {{ Tomeet.comment}}</h4>
+                    <h4><a href="{% url 'close-tomeet' Tomeet.id %}">{{ Tomeet.persone}} -  {{ Tomeet.comment}}</a></h4>
                     <h6>Tel: {{ Tomeet.phone_namber}}</h6>
                 </div>
                 <div  class="todo_item_footer">

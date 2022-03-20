@@ -64,4 +64,10 @@ def unmark_goal(request, id):
     goal.save()
     return redirect(newHW)
 
+def close_tomeet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.is_closed = not tomeet.is_closed
+    tomeet.save()
+    return redirect(meeting)
+
 
