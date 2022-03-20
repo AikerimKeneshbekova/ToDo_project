@@ -16,10 +16,13 @@ Including another URLconf
 from xml.dom.minidom import Document
 from django.contrib import admin
 from django.urls import path
-from main.views import  test, homepage, habits, add_habits, add_todo
-from homework.views import home, helloworld, meeting, newHW, add_tomeet, add_new
+from main.views import  test, homepage, habits, add_habits, add_todo, delete_todo, delete_habits
+from homework.views import home, helloworld, meeting, newHW, add_tomeet, add_new, delete_tomeet,delete_goal
 from django.conf import settings
 from django.conf.urls.static import static
+
+
+
 
 
 urlpatterns = [
@@ -34,7 +37,11 @@ urlpatterns = [
     path("habits", habits, name ="habits"),
     path("add_habits", add_habits, name= "add_habits" ),
     path("add_new", add_new, name="add_new"),
-    path("add-todo/", add_todo, name = "add-todo")
+    path("add-todo/", add_todo, name = "add-todo"),
+    path("delete-todo/<id>/", delete_todo, name = "delete-todo"),
+    path("delete-tomeet/<id>/", delete_tomeet, name = "delete-tomeet"),
+    path("delete-goal/<id>/", delete_goal, name= "delete-goal"),
+    path("delete-habits/<id>", delete_habits, name="delete-habits")
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, Document_root=settings.MEDIA_ROOT) \
     

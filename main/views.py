@@ -29,3 +29,13 @@ def add_todo(request):
     todo.save()
     return redirect(test)
 
+def delete_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(test)
+
+def delete_habits(request, id):
+    habits1 = Habits.objects.get(id=id)
+    habits1.delete()
+    return redirect(habits)
+

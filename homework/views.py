@@ -28,3 +28,13 @@ def add_new(request):
     new = Goal_for_month(goal = text)
     new.save()
     return redirect(newHW)
+
+def delete_tomeet(request, id):
+    tomeet = ToMeet.objects.get(id=id)
+    tomeet.delete()
+    return redirect(meeting)
+
+def delete_goal(request, id):
+    goal = Goal_for_month.objects.get(id=id)
+    goal.delete()
+    return redirect(newHW)
